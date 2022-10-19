@@ -54,6 +54,7 @@ int main(void) {
     // TODO: Toggle an LED here
     gpio__toggle(gpio);
     fprintf(stderr, "Main ");
+    fprintf(stderr, "Main ");
   }
 
   // If you have the ESP32 wifi module soldered on the board, you can try uncommenting this code
