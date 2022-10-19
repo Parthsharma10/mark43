@@ -1,0 +1,138 @@
+VERSION ""
+
+NS_ :
+	BA_
+	BA_DEF_
+	BA_DEF_DEF_
+	BA_DEF_DEF_REL_
+	BA_DEF_REL_
+	BA_DEF_SGTYPE_
+	BA_REL_
+	BA_SGTYPE_
+	BO_TX_BU_
+	BU_BO_REL_
+	BU_EV_REL_
+	BU_SG_REL_
+	CAT_
+	CAT_DEF_
+	CM_
+	ENVVAR_DATA_
+	EV_DATA_
+	FILTER
+	NS_DESC_
+	SGTYPE_
+	SGTYPE_VAL_
+	SG_MUL_VAL_
+	SIGTYPE_VALTYPE_
+	SIG_GROUP_
+	SIG_TYPE_REF_
+	SIG_VALTYPE_
+	VAL_
+	VAL_TABLE_
+
+BS_:
+
+BU_: DBG DRIVER IO MOTOR SENSOR
+
+
+BO_ 100 DBC_TEST0_FLOATS: 6 IO
+ SG_ DBC_TEST0_float : 0|8@1+ (0.5,0) [0|0] "" DBG
+ SG_ DBC_TEST0_float_signed_with_offset : 8|16@1+ (0.001,-32) [0|0] "" DBG
+ SG_ DBC_TEST0_float_signed : 24|16@1- (0.01,0) [0|0] "" DBG
+ SG_ DBC_TEST0_float_signed_min_max : 40|8@1- (0.1,0) [-12.8|12.7] "" DBG
+
+BO_ 200 DBC_TEST1: 4 IO
+ SG_ DBC_TEST1_unsigned : 0|8@1+ (1,0) [0|0] "" DBG
+ SG_ DBC_TEST1_unsigned_scaled : 8|8@1+ (10,0) [0|0] "" DBG
+ SG_ DBC_TEST1_unsigned_minmax : 16|8@1+ (1,0) [0|100] "" DBG
+ SG_ DBC_TEST1_enum : 24|4@1+ (1,0) [0|0] "" DBG
+
+BO_ 300 DBC_TEST2: 7 IO
+ SG_ DBC_TEST2_real_signed1 : 0|12@1- (1,0) [0|0] "" DBG
+ SG_ DBC_TEST2_real_signed2 : 12|18@1- (1,0) [0|0] "" DBG
+ SG_ DBC_TEST2_signed : 30|10@1+ (1,-128) [0|0] "" DBG
+ SG_ DBC_TEST2_signed_minmax : 40|16@1+ (1,-32768) [-32768|32767] "" DBG
+
+BO_ 400 DBC_TEST3: 2 IO
+ SG_ DBC_TEST3_real_signed1 : 2|4@1+ (1,-8) [0|0] "" DBG
+ SG_ DBC_TEST3_real_signed2 : 8|8@1- (1,5) [0|0] "" DBG
+
+BO_ 500 DRIVER_HEARTBEAT: 1 DRIVER
+ SG_ DRIVER_HEARTBEAT_cmd : 0|8@1+ (1,0) [0|0] "" SENSOR,MOTOR
+
+BO_ 600 MOTOR_CMD: 1 DRIVER
+ SG_ MOTOR_CMD_steer : 0|4@1+ (1,-5) [-5|5] "" MOTOR
+ SG_ MOTOR_CMD_drive : 4|4@1+ (1,0) [0|9] "" MOTOR
+
+BO_ 700 MOTOR_STATUS: 3 MOTOR
+ SG_ MOTOR_STATUS_wheel_error : 0|1@1+ (1,0) [0|0] "" DRIVER,IO
+ SG_ MOTOR_STATUS_speed_kph : 8|16@1+ (0.001,0) [0|0] "kph" DRIVER,IO
+
+BO_ 800 SENSOR_SONARS: 8 SENSOR
+ SG_ SENSOR_SONARS_mux M : 0|4@1+ (1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_err_count : 4|12@1+ (1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_left m0 : 16|12@1+ (0.1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_middle m0 : 28|12@1+ (0.1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_right m0 : 40|12@1+ (0.1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_rear m0 : 52|12@1+ (0.1,0) [0|0] "" DRIVER,IO
+ SG_ SENSOR_SONARS_no_filt_left m1 : 16|12@1+ (0.1,0) [0|0] "" DBG
+ SG_ SENSOR_SONARS_no_filt_middle m1 : 28|12@1+ (0.1,0) [0|0] "" DBG
+ SG_ SENSOR_SONARS_no_filt_right m1 : 40|12@1+ (0.1,0) [0|0] "" DBG
+ SG_ SENSOR_SONARS_no_filt_rear m1 : 52|12@1+ (0.1,0) [0|0] "" DBG
+
+BO_ 900 DBC_TEST4: 8 IO
+ SG_ DBC_TEST4_real_signed1 : 0|32@1- (1,0) [0|0] "" DBG
+ SG_ DBC_TEST4_real_signed2 : 32|16@1- (1,0) [-32768|32767] "" DBG
+ SG_ DBC_TEST4_real_overflow : 48|16@1+ (10,100) [0|0] "" DBG
+
+BO_ 1000 DBC_TEST5: 2 IO
+ SG_ DBC_TEST5_percent : 0|5@1+ (5,0) [0|0] "" DBG
+ SG_ DBC_TEST5_percent_float : 5|6@1+ (2.5,0) [0|0] "" DBG
+
+BO_ 1100 DBC_TEST6: 2 IO
+ SG_ DBC_TEST6_with_fractional_offset : 0|8@1+ (1,75.5) [0|0] "" DBG
+ SG_ DBC_TEST6_with_fractional_scale_offset : 8|8@1+ (0.5,-75.5) [0|0] "" DBG
+
+BO_ 1200 DBC_TEST_BIG_ENDIAN: 6 IO
+ SG_ DBC_TEST_BIG_ENDIAN_SIG1 : 4|20@0+ (1,0) [0|0] "" DBG
+ SG_ DBC_TEST_BIG_ENDIAN_SIG2 : 28|20@0+ (0.1,0) [0|0] "" DBG
+
+BO_ 1300 DBC_TEST_MIXED_ENDIAN: 6 IO
+ SG_ DBC_TEST_MIXED_ENDIAN_SIG1 : 4|16@0+ (1,0) [0|0] "" DBG
+ SG_ DBC_TEST_MIXED_ENDIAN_SIG2 : 30|16@1+ (0.1,0) [0|0] "" DBG
+
+CM_ BU_ DRIVER "The driver controller driving the car";
+CM_ BU_ MOTOR "The motor controller of the car";
+CM_ BU_ SENSOR "The sensor controller of the car";
+CM_ BO_ 100 "Sync message used to synchronize the controllers";
+
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
+BA_DEF_ SG_ "FieldType" STRING ;
+
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "FieldType" "";
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+
+BA_ "GenMsgCycleTime" BO_ 100 10;
+BA_ "GenMsgCycleTime" BO_ 200 10;
+BA_ "GenMsgCycleTime" BO_ 300 100;
+BA_ "GenMsgCycleTime" BO_ 400 100;
+BA_ "GenMsgCycleTime" BO_ 500 100;
+BA_ "GenMsgCycleTime" BO_ 600 100;
+BA_ "GenMsgCycleTime" BO_ 700 100;
+BA_ "GenMsgCycleTime" BO_ 800 100;
+BA_ "GenMsgCycleTime" BO_ 900 100;
+BA_ "GenMsgCycleTime" BO_ 1000 100;
+BA_ "GenMsgCycleTime" BO_ 1100 100;
+BA_ "GenMsgCycleTime" BO_ 1200 100;
+BA_ "GenMsgCycleTime" BO_ 3000 100;
+
+BA_ "FieldType" SG_ 200 DBC_TEST1_enum "DBC_TEST1_enum";
+BA_ "FieldType" SG_ 500 DRIVER_HEARTBEAT_cmd "DRIVER_HEARTBEAT_cmd";
+
+
+VAL_ 200 DBC_TEST1_enum 2 "val_two" 1 "val_one" 0 "value wierd (just for test)" ;
+VAL_ 500 DRIVER_HEARTBEAT_cmd 2 "REBOOT" 1 "SYNC" 0 "NOOP" ;
+
+
